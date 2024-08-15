@@ -6,7 +6,6 @@
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.1.min.js"
     ></script>
-
     <!-- bootstrap -->
     <link
       type="text/css"
@@ -17,13 +16,11 @@
       type="text/javascript"
       src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
     ></script>
-
     <!-- handlebars -->
     <script
       type="text/javascript"
       src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"
     ></script>
-
     <!-- alpaca -->
     <link
       type="text/css"
@@ -36,26 +33,149 @@
     ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alpaca Form</title>
+    <title>Client Questionnaire</title>
+    <style>
+      .alpaca-field {
+        margin-bottom: 15px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+    </style>
   </head>
   <body>
-    <div id="form"></div>
+    <div class="container">
+      <div id="logo">
+        <img src="./media/duque-logo-simple.png" alt="duque-logo" />
+      </div>
+      <div id="form"></div>
+    </div>
     <script type="text/javascript">
       $(document).ready(function () {
         $("#form").alpaca({
           schema: {
-            title: "General PQ",
-            description: "General PQ form",
+            title: "General Profile Questionnaire",
+            description: "Please fill out the following information",
             type: "object",
             properties: {
-              name: {
+              fullName: {
                 type: "string",
-                title: "Name",
+                title: "Full Name",
+              },
+              email: {
+                type: "string",
+                title: "Email Address",
+              },
+              dateOfBirth: {
+                type: "string",
+                title: "Date of Birth",
               },
               country: {
                 type: "string",
-                title: "Country",
-                enum: ["Philippines", "Canada", "Japan"],
+                title: "Country of Residence",
+                enum: ["Canada", "Philippines", "Japan", "Other"],
+              },
+              phoneNumber: {
+                type: "string",
+                title: "Phone Number",
+              },
+              maritalStatus: {
+                type: "string",
+                title: "Marital Status",
+                enum: ["Single", "Married", "Divorced", "Widowed"],
+              },
+              employmentStatus: {
+                type: "string",
+                title: "Employment Status",
+                enum: ["Employed", "Self-Employed", "Unemployed", "Student"],
+              },
+              annualIncome: {
+                type: "number",
+                title: "Annual Income (USD)",
+              },
+              hasChildren: {
+                type: "boolean",
+                title: "Do you have children?",
+              },
+              languages: {
+                type: "array",
+                title: "Languages Spoken",
+                items: {
+                  type: "string",
+                },
+              },
+              additionalComments: {
+                type: "string",
+                title: "Additional Comments",
+              },
+            },
+          },
+          options: {
+            helper: "Temp organization!",
+            fields: {
+              fullName: {
+                size: 10,
+                helper: "Please enter your name only",
+                placeholder: "Enter your name here",
+              },
+              country: {
+                optionLabels: ["hey", "that", "good"],
+              },
+            },
+            form: {
+              buttons: {
+                submit: {
+                  title: "Submit",
+                  click: function () {
+                    alert("Form submitted!");
+                  },
+                },
+              },
+            },
+            fields: {
+              fullName: {
+                placeholder: "Enter your full name",
+              },
+              email: {
+                placeholder: "Enter your email address",
+              },
+              dateOfBirth: {
+                type: "date",
+                picker: {
+                  format: "MM/DD/YYYY",
+                },
+              },
+              country: {
+                type: "select",
+              },
+              phoneNumber: {
+                type: "text",
+                placeholder: "+1 (123) 456-7890",
+              },
+              maritalStatus: {
+                type: "radio",
+              },
+              employmentStatus: {
+                type: "select",
+              },
+              annualIncome: {
+                type: "number",
+              },
+              hasChildren: {
+                type: "checkbox",
+                rightLabel: "Yes",
+              },
+              languages: {
+                type: "token",
+              },
+              additionalComments: {
+                type: "textarea",
+                rows: 5,
+                placeholder: "Enter any additional information here",
               },
             },
           },
