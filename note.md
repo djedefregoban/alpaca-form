@@ -1,6 +1,21 @@
 1. schema
 2. options
 
+# Todos
+- git autocommit
+- think of a way to implement google docs and google sheets
+- database out of database (Notion)
+- research on JSON security
+- alpaca
+    - dynamic forms and questions
+    - multiple pages
+    - progress bar
+    - duque logo
+    - perfect validation
+- Make General and LMIA form with Alpaca
+- Outline sender, reminder, watcher
+- Strike the email issue
+
 # Form
 
 - How to change the content of the page according to the http code response
