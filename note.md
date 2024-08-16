@@ -4,6 +4,7 @@
 # Form
 
 - How to change the content of the page according to the http code response
+- Form should have a client id(nnn/mm/yy)
 
 # Doc <-> sheet <-> form
 
